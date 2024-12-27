@@ -36,5 +36,5 @@ class App(object):
 def run(filename):
     app = App(filename)
     app.root.mainloop()
-
+    sys.exit(0)
 
