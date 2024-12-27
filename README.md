@@ -85,3 +85,9 @@ and documentation to get started on. Feel free to fork the project and ask quest
 ## License
 
 The codesters-graphics library is licensed under the MIT License.
+
+## Packaging the module
+
+```sh
+python3 -m build
+```
