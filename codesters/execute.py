@@ -30,7 +30,9 @@ def runner():
 
     args = parser.parse_args()
 
+    filename = args.filename
+
     if args.example:
-        execute_example(args.filename)
-    else:
-        execute(args.filename)
+        filename = os.path.dirname(os.path.abspath(__file__)) + '/examples/' + filename
+
+    execute(filename)

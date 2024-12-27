@@ -37,21 +37,20 @@ You can also run a python file with the codesters graphics library like this:
 ```
 codesters my_project_file.py
 ```
+
 If you need inspiration, run one of our examples with
-```
+
+```sh
 codesters --example basketball.py
 ```
-or
-```
-codesters-example basketball.py
-```
+
 Our example files are:
-* chainreaction.py
 * basketball.py
+* chainreaction.py
+* feedthefish.py
 * flappyfox.py
 * flowerfox.py
 * recycle.py
-* feedthefish.py
 
 
 

@@ -32,7 +32,6 @@ class App(object):
         self.manager.run()
         self.animate = Manager.root.after(5, self.move_one)
 
-#Workaround; for right now, this like has to be in the program being run, rather than __init__.py as it should.
 def run(filename):
     app = App(filename)
     app.root.mainloop()
