@@ -24,7 +24,7 @@ classifiers = [
     "Development Status :: 2 - Pre-Alpha",
 ]
 dependencies = [
-    "Pillow >= 9, < 10",
+    "Pillow >= 10, < 11",
     "Tkinter >= 3, < 4",
 ]
 
