@@ -1,4 +1,3 @@
-#!/usr/bin/python
 import os
 import sys
 import random
@@ -21,7 +20,6 @@ class App(object):
     def do(self):
         global stage
         stage = Environment()
-        #filepath = str(os.getcwd())+ '/' + self.filename
         filepath = self.filename
         try:
             exec(compile(open(filepath, "rb").read(), filepath, 'exec'), globals())
@@ -40,4 +38,3 @@ def run(filename):
     app.root.mainloop()
     sys.exit(0)
 
-#run(sys.argv[1])
