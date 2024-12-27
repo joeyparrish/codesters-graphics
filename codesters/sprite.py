@@ -463,45 +463,45 @@ class SpriteClass(object):
                         # TODO we're double checking some elements here, this can be more efficiecnt
 
                         if e.goal and self.collision_goal_function is not None:
-                            if len(inspect.getargspec(self.collision_goal_function)[0]) == 2:
+                            if len(inspect.signature(self.collision_goal_function).parameters) == 2:
                                 self.collision_goal_function(self, e)
-                            elif len(inspect.getargspec(self.collision_goal_function)[0]) == 1:
+                            elif len(inspect.signature(self.collision_goal_function).parameters) == 1:
                                 self.collision_goal_function(Manager.elements.index(e))
                             else:
                                 self.collision_goal_function()
                         elif e.hazard and self.collision_hazard_function is not None:
-                            if len(inspect.getargspec(self.collision_hazard_function)[0]) == 2:
+                            if len(inspect.signature(self.collision_hazard_function).parameters) == 2:
                                 self.collision_hazard_function(self, e)
-                            elif len(inspect.getargspec(self.collision_hazard_function)[0]) == 1:
+                            elif len(inspect.signature(self.collision_hazard_function).parameters) == 1:
                                 self.collision_hazard_function(Manager.elements.index(e))
                             else:
                                 self.collision_hazard_function()
                         elif e.collision and self.collision_function is not None:
-                            if len(inspect.getargspec(self.collision_function)[0]) >= 2:
+                            if len(inspect.signature(self.collision_function).parameters) >= 2:
                                 self.collision_function(self, e)
-                            elif len(inspect.getargspec(self.collision_function)[0]) == 1:
+                            elif len(inspect.signature(self.collision_function).parameters) == 1:
                                 self.collision_function(Manager.elements.index(e))
                             else:
                                 self.collision_function()
 
                         if self.goal and e.collision_goal_function is not None:
-                            if len(inspect.getargspec(e.collision_goal_function)[0]) == 2:
+                            if len(inspect.signature(e.collision_goal_function).parameters) == 2:
                                 e.collision_goal_function(e, self)
-                            elif len(inspect.getargspec(e.collision_goal_function)[0]) == 1:
+                            elif len(inspect.signature(e.collision_goal_function).parameters) == 1:
                                 e.collision_goal_function(Manager.elements.index(self))
                             else:
                                 e.collision_goal_function()
                         elif self.hazard and e.collision_hazard_function is not None:
-                            if len(inspect.getargspec(e.collision_hazard_function)[0]) == 2:
+                            if len(inspect.signature(e.collision_hazard_function).parameters) == 2:
                                 e.collision_hazard_function(e, self)
-                            elif len(inspect.getargspec(e.collision_hazard_function)[0]) == 1:
+                            elif len(inspect.signature(e.collision_hazard_function).parameters) == 1:
                                 e.collision_hazard_function(Manager.elements.index(self))
                             else:
                                 self.collision_hazard_function()
                         elif self.collision and e.collision_function is not None:
-                            if len(inspect.getargspec(e.collision_function)[0]) >= 2:
+                            if len(inspect.signature(e.collision_function).parameters) >= 2:
                                 e.collision_function(e, self)
-                            elif len(inspect.getargspec(e.collision_function)[0]) == 1:
+                            elif len(inspect.signature(e.collision_function).parameters) == 1:
                                 e.collision_function(Manager.elements.index(self))
                             else:
                                 e.collision_function()
@@ -514,9 +514,9 @@ class SpriteClass(object):
             if key in list(self.key_functions.keys()) and Manager.frame_number % Manager.event_delay == 0:
                 #  self.clear_queue()
                 for i in self.key_functions[key]:
-                    if len(inspect.getargspec(i)[0]) == 0:
+                    if len(inspect.signature(i).parameters) == 0:
                         i()
-                    elif len(inspect.getargspec(i)[0]) == 1:
+                    elif len(inspect.signature(i).parameters) == 1:
                         i(self)
         if self.drag:
             if Manager.mouse_down and self.have_clicked:
@@ -1228,9 +1228,9 @@ class SpriteClass(object):
 
         def f(event):
             #  self.clear_queue()
-            if len(inspect.getargspec(function)[0]) == 0:
+            if len(inspect.signature(function).parameters) == 0:
                 function()
-            elif len(inspect.getargspec(function)[0]) == 1:
+            elif len(inspect.signature(function).parameters) == 1:
                 function(self)
         if newkey not in list(self.key_functions.keys()):
             self.key_functions[newkey] = [f]
