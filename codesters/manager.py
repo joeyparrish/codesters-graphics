@@ -2,8 +2,6 @@ from tkinter import Tk, Canvas
 
 
 class Manager(object):
-    root = Tk()
-    canvas = Canvas(root, width=500, height=500)
     elements = []
     stage = None
 
@@ -20,6 +18,8 @@ class Manager(object):
     height = 250
 
     def __init__(self):
+        Manager.root = Tk()
+        Manager.canvas = Canvas(Manager.root, width=500, height=500)
         Manager.width = self.canvas.winfo_reqwidth()/2
         Manager.height = self.canvas.winfo_reqwidth()/2
 
