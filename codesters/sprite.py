@@ -18,34 +18,34 @@ class SpriteClass(object):
         "person1": "Character2",
         "person2": "Character1",
         "person3": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person4": "Character4",
-        "person5": "Character6",
-        "person6": "teenager",
-        "person7": "teenager2",
+        "person4": "Character4",  # MISSING
+        "person5": "Character6",  # MISSING
+        "person6": "teenager",  # MISSING
+        "person7": "teenager2",  # MISSING
         "person8": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "person9": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "person10": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "person11": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "person12": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "princess": "Princess",
-        "princess2": "Princess2",
-        "prince": "Prince",
-        "superhero1": "superhero1",
-        "superhero2": "superhero2",
-        "athlete1": "athlete1",
-        "athlete2": "athlete2",
-        "astronaut1": "astronaut",
-        "astronaut2": "astronaut2",
-        "alien1": "Alien-1",
-        "snowman": "Snowman",
-        "ufo": "UFO",
-        "spaceship": "Shuttle",
-        "rocket": "Rocket",
-        "knight1": "female-knight",
-        "knight2": "knight",
+        "princess": "Princess",  # MISSING
+        "princess2": "Princess2",  # MISSING
+        "prince": "Prince",  # MISSING
+        "superhero1": "superhero1",  # MISSING
+        "superhero2": "superhero2",  # MISSING
+        "athlete1": "athlete1",  # MISSING
+        "athlete2": "athlete2",  # MISSING
+        "astronaut1": "astronaut",  # MISSING
+        "astronaut2": "astronaut2",  # MISSING
+        "alien1": "Alien-1",  # MISSING
+        "snowman": "Snowman",  # MISSING
+        "ufo": "UFO",  # MISSING
+        "spaceship": "Shuttle",  # MISSING
+        "rocket": "Rocket",  # MISSING
+        "knight1": "female-knight",  # MISSING
+        "knight2": "knight",  # MISSING
         "wizard": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "dragon": "dragon",
-        "treasurechest": "treasurechest",
+        "dragon": "dragon",  # MISSING
+        "treasurechest": "treasurechest",  # MISSING
         "cow": "",   # CANNOT FIND THIS IMAGE IN SPRITES
         "toucan": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "parrot": "",  # CANNOT FIND THIS IMAGE IN SPRITES
@@ -54,94 +54,93 @@ class SpriteClass(object):
         "snake": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "pig": "",  # CANNOT FIND THIS IMAGE IN SPRITES
         "fox": "Fox",
-        "dog": "dog",
+        "dog": "dog",  # MISSING
         "cat": "Cat",
         "kitten": "kitten",
-        "penguin": "penguin",
-        "hedgehog": "Hedgehog",
-        "butterfly": "Butterfly",
-        "dinosaur": "Dinosaur",
-        "bubbles": "Bubbles",
+        "penguin": "penguin",  # MISSING
+        "hedgehog": "Hedgehog",  # MISSING
+        "butterfly": "Butterfly",  # MISSING
+        "dinosaur": "Dinosaur",  # MISSING
+        "bubbles": "Bubbles",  # MISSING
         "flowers": "Flowers",
-        "flower2": "Flower2",
-        "flower3": "flower3",
-        "flower4": "Flower4",
+        "flower2": "Flower2",  # MISSING
+        "flower3": "flower3",  # MISSING
+        "flower4": "Flower4",  # MISSING
         "pinetree1": "PineTree1",
-        "pinetree2": "PineTree2",
-        "pinetree3": "PineTree3",
-        "pinetree4": "PineTree4",
-        "pinetree5": "PineTree5",
-        "pinetree6": "PineTree6",
-        "pinetree7": "PineTree7",
-        "shark": "shark",
-        "shark2": "shark2",
-        "turtle": "swimmingturtleSingle",
-        "turtle2": "turtle2",
+        "pinetree2": "PineTree2",  # MISSING
+        "pinetree3": "PineTree3",  # MISSING
+        "pinetree4": "PineTree4",  # MISSING
+        "pinetree5": "PineTree5",  # MISSING
+        "pinetree6": "PineTree6",  # MISSING
+        "pinetree7": "PineTree7",  # MISSING
+        "shark": "shark",  # MISSING
+        "shark2": "shark2",  # MISSING
+        "turtle": "swimmingturtleSingle",  # MISSING
+        "turtle2": "turtle2",  # MISSING
         "fish1": "Fish_1",
-        "fish2": "fish2",
-        "fish3": "Fish_3",
-        "fish4": "fish_4",
-        "football": "football",
+        "fish2": "fish2",  # MISSING
+        "fish3": "Fish_3",  # MISSING
+        "fish4": "fish_4",  # MISSING
+        "football": "football",  # MISSING
         "soccerball": "soccerball",
-        "soccernet": "soccer-net-side",
+        "soccernet": "soccer-net-side",  # MISSING
         "baseball": "baseball",
         "baseballbat": "bat",
         "basketball": "basketball",
         "net": "hoop",
         "backboard": "backboard",
-        "snowflake1": "snowflake1",
-        "snowflake2": "snowflake2",
-        "snowflake3": "snowflake3",
+        "snowflake1": "snowflake1",  # MISSING
+        "snowflake2": "snowflake2",  # MISSING
+        "snowflake3": "snowflake3",  # MISSING
         "present1": "Present1",
-        "present2": "Present2",
-        "present3": "Present3",
-        "present4": "Present4",
-        "present5": "present_5",
-        "present6": "present_6",
-        "present7": "present_7",
-        "present8": "present_8",
-        "paper": "Paper",
+        "present2": "Present2",  # MISSING
+        "present3": "Present3",  # MISSING
+        "present4": "Present4",  # MISSING
+        "present5": "present_5",  # MISSING
+        "present6": "present_6",  # MISSING
+        "present7": "present_7",  # MISSING
+        "present8": "present_8",  # MISSING
+        "paper": "Paper",  # MISSING
         "codesters": "codestersLogo",
-        "purpleguy": "purpleGuy",
-        "robot": "robot",
-        "enemy": "enemy",
-        "microphone": "microphone",
-        "dice1": "Dice5",
-        "dice2": "dice2",
-        "dice3": "dice1",
-        "dice4": "dice3",
-        "dice5": "dice4",
-        "dice6": "dice7",
-        "heads": "codesterscoinheads",
-        "tails": "codesterscointails",
-        "coin": "codesterscoinsmall",
-        "scissors": "scissors",
-        "rock": "rock",
-        "earth": "earth",
+        "purpleguy": "purpleGuy",  # MISSING
+        "robot": "robot",  # MISSING
+        "enemy": "enemy",  # MISSING
+        "microphone": "microphone",  # MISSING
+        "dice1": "Dice5",  # MISSING
+        "dice2": "dice2",  # MISSING
+        "dice3": "dice1",  # MISSING
+        "dice4": "dice3",  # MISSING
+        "dice5": "dice4",  # MISSING
+        "dice6": "dice7",  # MISSING
+        "heads": "codesterscoinheads",  # MISSING
+        "tails": "codesterscointails",  # MISSING
+        "coin": "codesterscoinsmall",  # MISSING
+        "scissors": "scissors",  # MISSING
+        "rock": "rock",  # MISSING
+        "earth": "earth",  # MISSING
         "recyclingbin": "recyclingbin",
-        "trashcan": "trashbin",
-        "garbage": "garbage",
-        "pollution": "pollution",
+        "trashcan": "trashbin",  # MISSING
+        "garbage": "garbage",  # MISSING
+        "pollution": "pollution",  # MISSING
         "applecore": "applecore",
-        "fishbones": "fishskeleton",
+        "fishbones": "fishskeleton",  # MISSING
         "sodacan": "sodacan",
         "steelcan": "can",
         "waterbottle": "waterbottle",
         "milkjug": "milkjug",
-        "plasticbag": "plasticbag",
-        "toothbrush": "toothbrush",
-        "jeans": "jeans",
-        "tshirt": "tshirt2",
-        "sweater": "sweater",
-        "coat": "jacket",
-        "fleecehat": "hat",
+        "plasticbag": "plasticbag",  # MISSING
+        "toothbrush": "toothbrush",  # MISSING
+        "jeans": "jeans",  # MISSING
+        "tshirt": "tshirt2",  # MISSING
+        "sweater": "sweater",  # MISSING
+        "coat": "jacket",  # MISSING
+        "fleecehat": "hat",  # MISSING
         "bike": "bike",
         "bench": "bench",
-        "slide": "slide",
-        "sink": "sink",
-        "shower": "shower",
-        "hoop": "hoop"
-
+        "slide": "slide",  # MISSING
+        "sink": "sink",  # MISSING
+        "shower": "shower",  # MISSING
+        "hoop": "hoop",
     }
 
     ## PIVOTAL FUNCTIONS ##

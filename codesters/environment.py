@@ -16,28 +16,28 @@ class StageClass(object):
     """
     image_dictionary = {
         "underwater": "Underwater_BG-01",
-        "summer": "beach",
-        "space": "space2",
+        "summer": "beach",  # MISSING
+        "space": "space2",  # MISSING
         "moon": "Space-Background",
-        "stage": "Stage",
+        "stage": "Stage",  # MISSING
         "winter": "Winterscape",
         "grid2": "gridfine",
         "park": "Playground",
-        "stadium": "BasketballStadium",
-        "flower_field": "Long-flower-field",
+        "stadium": "BasketballStadium",  # MISSING
+        "flower_field": "Long-flower-field",  # MISSING
         "spring": '',   # CANNOT FIND THIS IMAGE IN SPRITES
         "fall": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "tilewall": "bathroom-01",
-        "concert": "concertstage",
-        "theater": "Stage",
-        "city": "CityBackground",
-        "baseballfield": "baseballdiamond",
-        "grid": "Modified-graph",
+        "tilewall": "bathroom-01",  # MISSING
+        "concert": "concertstage",  # MISSING
+        "theater": "Stage",  # MISSING
+        "city": "CityBackground",  # MISSING
+        "baseballfield": "baseballdiamond",  # MISSING
+        "grid": "Modified-graph",  # MISSING
         "houseinterior": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "soccerfield": "soccer-field",
+        "soccerfield": "soccer-field",  # MISSING
         "subway": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "flowers": "flowerfield",
-        "footballfield": "footballfield",
+        "flowers": "flowerfield",  # MISSING
+        "footballfield": "footballfield",  # MISSING
         "jungle": '',   # CANNOT FIND THIS IMAGE IN SPRITES
     }
 
