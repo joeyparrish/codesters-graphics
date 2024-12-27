@@ -1,6 +1,8 @@
 # codesters-graphics
 A library to allow programs developed on codesters.com to run offline.
 
+Now updated for Python 3.
+
 ## Synopsis
 
 This is a python module to allow students working on www.codesters.com to run codesters projects offline.
@@ -11,7 +13,7 @@ larger, object-oriented projects.
 
 You can install the codesters library with pip.
 ```
-pip install codesters
+python3 -m pip install codesters3
 ```
 
 After installing the library with pip you can `import codesters` in any python file.
