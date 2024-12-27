@@ -30,7 +30,9 @@ jobs:
         grep version pyproject.toml
 
     - name: Build
-      run: python3 -m build
+      run: |
+        python3 -m pip install build
+        python3 -m build
 
     - name: Publish
       uses: pypa/gh-action-pypi-publish@release/v1
