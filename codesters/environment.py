@@ -1,4 +1,4 @@
-from Tkinter import Canvas
+from tkinter import Canvas
 from PIL import Image, ImageTk
 from .manager import Manager
 import os
@@ -105,7 +105,7 @@ class StageClass(object):
 
     def update_events(self):
         for key in Manager.keys_pressed:
-            if key in self.key_functions.keys() and Manager.frame_number % Manager.event_delay == 0:
+            if key in list(self.key_functions.keys()) and Manager.frame_number % Manager.event_delay == 0:
                 # for e in Manager.elements:
                 #     e.clear_queue()
                 for i in self.key_functions[key]:
@@ -169,7 +169,7 @@ class StageClass(object):
             # for e in Manager.elements:
             #     e.clear_queue()
             function()
-        if "Left" not in self.key_functions.keys():
+        if "Left" not in list(self.key_functions.keys()):
             self.key_functions['Left'] = [newfunction]
         else:
             self.key_functions['Left'].append(newfunction)
@@ -179,7 +179,7 @@ class StageClass(object):
             # for e in Manager.elements:
             #     e.clear_queue()
             function()
-        if "Right" not in self.key_functions.keys():
+        if "Right" not in list(self.key_functions.keys()):
             self.key_functions['Right'] = [newfunction]
         else:
             self.key_functions['Right'].append(newfunction)
@@ -189,7 +189,7 @@ class StageClass(object):
             # for e in Manager.elements:
             #     e.clear_queue()
             function()
-        if "Up" not in self.key_functions.keys():
+        if "Up" not in list(self.key_functions.keys()):
             self.key_functions['Up'] = [newfunction]
         else:
             self.key_functions['Up'].append(newfunction)
@@ -199,7 +199,7 @@ class StageClass(object):
             # for e in Manager.elements:
             #     e.clear_queue()
             function()
-        if "Down" not in self.key_functions.keys():
+        if "Down" not in list(self.key_functions.keys()):
             self.key_functions['Down'] = [newfunction]
         else:
             self.key_functions['Down'].append(newfunction)
@@ -209,7 +209,7 @@ class StageClass(object):
             # for e in Manager.elements:
             #     e.clear_queue()
             function()
-        if "space" not in self.key_functions.keys():
+        if "space" not in list(self.key_functions.keys()):
             self.key_functions['space'] = [newfunction]
         else:
             self.key_functions['space'].append(newfunction)
@@ -230,7 +230,7 @@ class StageClass(object):
             bound_key_name = "Down"
         if key == "space":
             bound_key_name = "space"
-        if bound_key_name not in self.key_functions.keys():
+        if bound_key_name not in list(self.key_functions.keys()):
             self.key_functions[bound_key_name] = [newfunction]
         else:
             self.key_functions[bound_key_name].append(newfunction)
@@ -298,7 +298,7 @@ class StageClass(object):
             try:
                 self.bg_image = Image.open(img_path)
             except Exception as ex:
-                print ex
+                print(ex)
                 self.bg_photoimg = None
                 self.bg_image = None
                 self.bg_image_name = ''

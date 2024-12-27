@@ -13,7 +13,7 @@ end_ground = codesters.Rectangle(0, 240, 500, 25, "darkgreen")
 global frogger  # GLOBALS
 frogger = codesters.Sprite("", 0, -250)
 frogger.set_size(0.5)
-print frogger.modes
+print(frogger.modes)
 
 
 # barrier = codesters.Line(-220, 248, -220, -248, "black")
@@ -73,32 +73,32 @@ stage.event_interval(interval, 1)
 
 def up_key():
     frogger.set_y(frogger.get_y() + 50)
-    print frogger.xcor, frogger.future_x
-    print frogger.ycor, frogger.future_y
+    print(frogger.xcor, frogger.future_x)
+    print(frogger.ycor, frogger.future_y)
     frogger.print_corners()
     # add other actions...
 stage.event_key("up", up_key)
 
 def down_key():  # EVENT
     frogger.set_y(frogger.get_y() - 50)
-    print frogger.xcor, frogger.future_x
-    print frogger.ycor, frogger.future_y
+    print(frogger.xcor, frogger.future_x)
+    print(frogger.ycor, frogger.future_y)
     frogger.print_corners()
     # add other actions...
 stage.event_key("down", down_key)
 
 def left_key():  # EVENT
     frogger.set_x(frogger.get_x() - 50)
-    print frogger.xcor, frogger.future_x
-    print frogger.ycor, frogger.future_y
+    print(frogger.xcor, frogger.future_x)
+    print(frogger.ycor, frogger.future_y)
     frogger.print_corners()
     # add other actions...
 stage.event_key("left", left_key)
 
 def right_key():  # EVENT
     frogger.set_x(frogger.get_x() + 50)
-    print frogger.xcor, frogger.future_x
-    print frogger.ycor, frogger.future_y
+    print(frogger.xcor, frogger.future_x)
+    print(frogger.ycor, frogger.future_y)
     frogger.print_corners()
     # add other actions...
 stage.event_key("right", right_key)
@@ -127,7 +127,7 @@ def collision(sprite, hit_sprite): # COLLISIONS MARK REALLY WEIRDLY IN THIS PROJ
     # if frogger hits a car
     elif hit_sprite.get_name() == "square":
         result.set_text("SPLAT!  GAME OVER!")
-        print 'SPLAT'
+        print('SPLAT')
         frogger.reset_animation()
     # if frogger hits the pond
     elif hit_sprite.get_color() == "blue":

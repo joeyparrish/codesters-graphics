@@ -1,6 +1,6 @@
 #!/usr/bin/python
-import run
-import example
+from . import run
+from . import example
 import argparse
 
 

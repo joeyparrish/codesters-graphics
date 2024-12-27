@@ -3,8 +3,8 @@ import os
 import sys
 import random
 
-from manager import Manager
-from environment import Environment
+from .manager import Manager
+from .environment import Environment
 
 class App(object):
 
@@ -24,11 +24,11 @@ class App(object):
         #filepath = str(os.getcwd())+ '/' + self.filename
         filepath = self.filename
         try:
-            execfile(filepath, globals())
+            exec(compile(open(filepath, "rb").read(), filepath, 'exec'), globals())
         except IOError:
-            print "There is no file named "+filepath+". Please try again!"
+            print("There is no file named "+filepath+". Please try again!")
         except SyntaxError:
-            print filepath+" is not a codesters Python file. Please try again!"
+            print(filepath+" is not a codesters Python file. Please try again!")
 
     def move_one(self):
         self.manager.run()

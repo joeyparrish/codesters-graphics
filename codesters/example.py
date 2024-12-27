@@ -3,8 +3,8 @@ import os
 import sys
 import random
 
-from manager import Manager
-from environment import Environment
+from .manager import Manager
+from .environment import Environment
 
 
 class App(object):
@@ -24,7 +24,7 @@ class App(object):
         stage = Environment()
 
         filepath = os.path.dirname(os.path.abspath(__file__)) + '/examples/' + self.filename
-        execfile(filepath, globals())
+        exec(compile(open(filepath, "rb").read(), filepath, 'exec'), globals())
 
 
 

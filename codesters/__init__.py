@@ -1,8 +1,8 @@
-from environment import *
-from shapes import *
-from sprite import *
-from manager import *
-from execute import execute as codesters_run
+from .environment import *
+from .shapes import *
+from .sprite import *
+from .manager import *
+from .execute import execute as codesters_run
 import sys
 import os
 

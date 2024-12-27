@@ -362,9 +362,9 @@ class SpriteClass(object):
         self.future_x += self.xspeed
         self.future_y += self.yspeed
         for i in range(len(self.animation_x_coords)):
-            if not isinstance(self.animation_x_coords[i], basestring):
+            if not isinstance(self.animation_x_coords[i], str):
                 self.animation_x_coords[i] += self.xspeed
-            if not isinstance(self.animation_y_coords[i], basestring):
+            if not isinstance(self.animation_y_coords[i], str):
                 self.animation_y_coords[i] += self.yspeed
         if self.gravity_true:
             self.yspeed -= self.gravity
@@ -419,10 +419,10 @@ class SpriteClass(object):
         # It's mostly continuous motion that has to be stopped.
         # To be called in case of a collision or event that would interfere with motion.
         skips = ['say', 'wait']  # ,'pen', 'pen_color', 'pen_size', 'pen_clear', 'fill', 'fill_color', 'print_corners']
-        while (len(self.animation_x_coords) > 1 and isinstance(self.animation_x_coords[1], basestring)) or\
-                (len(self.animation_rotation_degrees) > 1 and isinstance(self.animation_rotation_degrees[1], basestring)) or\
-                (len(self.scale_plans) > 1 and isinstance(self.scale_plans[1], basestring)) or\
-                (len(self.dilate_plans) > 1 and isinstance(self.dilate_plans[1], basestring)) or\
+        while (len(self.animation_x_coords) > 1 and isinstance(self.animation_x_coords[1], str)) or\
+                (len(self.animation_rotation_degrees) > 1 and isinstance(self.animation_rotation_degrees[1], str)) or\
+                (len(self.scale_plans) > 1 and isinstance(self.scale_plans[1], str)) or\
+                (len(self.dilate_plans) > 1 and isinstance(self.dilate_plans[1], str)) or\
                 (len(self.modes) > 0 and self.modes[0] in skips):
             self.update_animation()
             self.update_animation()
@@ -511,7 +511,7 @@ class SpriteClass(object):
 
     def update_events(self):
         for key in Manager.keys_pressed:
-            if key in self.key_functions.keys() and Manager.frame_number % Manager.event_delay == 0:
+            if key in list(self.key_functions.keys()) and Manager.frame_number % Manager.event_delay == 0:
                 #  self.clear_queue()
                 for i in self.key_functions[key]:
                     if len(inspect.getargspec(i)[0]) == 0:
@@ -538,9 +538,9 @@ class SpriteClass(object):
                     self.set_x_speed(0)
                     self.set_y_speed(0)
                     for i in range(len(self.animation_x_coords)):
-                        if not isinstance(self.animation_x_coords[i], basestring):
+                        if not isinstance(self.animation_x_coords[i], str):
                             self.animation_x_coords[i] += changex
-                        if not isinstance(self.animation_y_coords[i], basestring):
+                        if not isinstance(self.animation_y_coords[i], str):
                             self.animation_y_coords[i] += changey
 
     def check_two_sprites_for_collision(self, sprite):
@@ -580,9 +580,9 @@ class SpriteClass(object):
 
     def update_animation(self):
         try:
-            if isinstance(self.future_x, basestring):
+            if isinstance(self.future_x, str):
                 self.future_x = self.xcor
-            if isinstance(self.future_y, basestring):
+            if isinstance(self.future_y, str):
                 self.future_y = self.ycor
         except AttributeError:
             self.future_x = None
@@ -592,7 +592,7 @@ class SpriteClass(object):
             if self.modes[0] == "wait":
                 # print 'waiting'
                 if len(self.wait_list) > 0:
-                    if isinstance(self.wait_list[0], basestring):
+                    if isinstance(self.wait_list[0], str):
                         self.wait_list.pop(0)
                         self.modes.pop(0)
                     elif self.wait_list[0] == 0:
@@ -601,8 +601,8 @@ class SpriteClass(object):
                         self.wait_list[0] = self.wait_list[0] - 1
             elif self.modes[0] == "translate":
                 if len(self.animation_y_coords) > 0 and len(self.animation_x_coords) > 0:
-                    if isinstance(self.animation_x_coords[0], basestring) \
-                            and isinstance(self.animation_y_coords[0], basestring):
+                    if isinstance(self.animation_x_coords[0], str) \
+                            and isinstance(self.animation_y_coords[0], str):
                         self.animation_x_coords.pop(0)
                         self.animation_y_coords.pop(0)
                         self.modes.pop(0)
@@ -611,7 +611,7 @@ class SpriteClass(object):
                         prevy = self.ycor
                         self.xcor = (self.animation_x_coords.pop(0))
                         self.ycor = (self.animation_y_coords.pop(0))
-                        if isinstance(self.xcor, basestring) or isinstance(self.ycor, basestring):
+                        if isinstance(self.xcor, str) or isinstance(self.ycor, str):
                             self.xcor = prevx
                             self.ycor = prevy
                         if self.pen:
@@ -636,7 +636,7 @@ class SpriteClass(object):
                     self.modes.pop(0)
             elif self.modes[0] == "rotate":
                 if len(self.animation_rotation_degrees) > 0:
-                    if isinstance(self.animation_rotation_degrees[0], basestring):
+                    if isinstance(self.animation_rotation_degrees[0], str):
                         self.animation_rotation_degrees.pop(0)
                         self.modes.pop(0)
                     else:
@@ -658,7 +658,7 @@ class SpriteClass(object):
                     self.modes.pop(0)
             elif self.modes[0] == "scale":
                 if len(self.scale_plans) > 0:
-                    if isinstance(self.scale_plans[0], basestring):
+                    if isinstance(self.scale_plans[0], str):
                         self.modes.pop(0)
                         self.scale_plans.pop(0)
                     else:
@@ -694,11 +694,11 @@ class SpriteClass(object):
                     self.fill_color_var = self.fill_color_plans.pop(0)
                     self.modes.pop(0)
             elif self.modes[0] == "print_corners":
-                print self.get_name()
-                print self.hitbox.top_left, "top_left"
-                print self.hitbox.top_right, "top_right"
-                print self.hitbox.bottom_right, "bottom_right"
-                print self.hitbox.bottom_left, "bottom_left"
+                print(self.get_name())
+                print(self.hitbox.top_left, "top_left")
+                print(self.hitbox.top_right, "top_right")
+                print(self.hitbox.bottom_right, "bottom_right")
+                print(self.hitbox.bottom_left, "bottom_left")
                 self.modes.pop(0)
             elif self.modes[0] == "dilate":
                 if len(self.dilate_plans) > 0:
@@ -903,7 +903,7 @@ class SpriteClass(object):
         self.say_plans.append([text, seconds*50, color, size, font])
 
     def ask(self, text):
-        return raw_input(text+'\n')
+        return input(text+'\n')
 
     def reset_animation(self):
         self.clear_queue()
@@ -1168,7 +1168,7 @@ class SpriteClass(object):
         def f(event):
             #  self.clear_queue()
             function()
-        if "Left" not in self.key_functions.keys():
+        if "Left" not in list(self.key_functions.keys()):
             self.key_functions['Left'] = [f]
         else:
             self.key_functions['Left'].append(f)
@@ -1177,7 +1177,7 @@ class SpriteClass(object):
         def f(event):
             #  self.clear_queue()
             function()
-        if "Right" not in self.key_functions.keys():
+        if "Right" not in list(self.key_functions.keys()):
             self.key_functions['Right'] = [f]
         else:
             self.key_functions['Right'].append(f)
@@ -1186,7 +1186,7 @@ class SpriteClass(object):
         def f(event):
             #  self.clear_queue()
             function()
-        if "Up" not in self.key_functions.keys():
+        if "Up" not in list(self.key_functions.keys()):
             self.key_functions['Up'] = [f]
         else:
             self.key_functions['Up'].append(f)
@@ -1195,7 +1195,7 @@ class SpriteClass(object):
         def f(event):
             #  self.clear_queue()
             function()
-        if "Down" not in self.key_functions.keys():
+        if "Down" not in list(self.key_functions.keys()):
             self.key_functions['Down'] = [f]
         else:
             self.key_functions['Down'].append(f)
@@ -1204,7 +1204,7 @@ class SpriteClass(object):
         def f(event):
             #  self.clear_queue()
             function()
-        if "space" not in self.key_functions.keys():
+        if "space" not in list(self.key_functions.keys()):
             self.key_functions['space'] = [f]
         else:
             self.key_functions['space'].append(f)
@@ -1232,7 +1232,7 @@ class SpriteClass(object):
                 function()
             elif len(inspect.getargspec(function)[0]) == 1:
                 function(self)
-        if newkey not in self.key_functions.keys():
+        if newkey not in list(self.key_functions.keys()):
             self.key_functions[newkey] = [f]
         else:
             self.key_functions[newkey].append(f)
@@ -1397,7 +1397,7 @@ class SpriteClass(object):
 class Sprite(SpriteClass):
 
     def __init__(self, image="", x=0, y=0, **kwargs):
-        if not isinstance(image, basestring):
+        if not isinstance(image, str):
             y = x
             x = image
             image = ''

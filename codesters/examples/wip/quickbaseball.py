@@ -68,7 +68,7 @@ def collision(sprite, hit_sprite):
         batx=bat.get_x()
         ballx=baseball.get_x()
         ball_x_speed=(ballx-batx)/6
-        print(str(ballx-batx))
+        print((str(ballx-batx)))
         hit_sprite.set_x_speed(ball_x_speed)
         hit_sprite.set_y_speed(bat_y_speed-ball_y_speed)
         batter.set_y_speed(3)

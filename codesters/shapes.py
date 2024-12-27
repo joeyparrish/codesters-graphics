@@ -1,8 +1,8 @@
-from Tkinter import Tk, Canvas
-import sprite
-import transformations
+from tkinter import Tk, Canvas
+from . import sprite
+from . import transformations
 import math
-import bezier
+from . import bezier
 from .hitbox import Hitbox
 import inspect
 import re

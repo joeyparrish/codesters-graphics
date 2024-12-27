@@ -1,4 +1,4 @@
-import codesters
+from . import codesters
 stage = codesters.Environment()
 
 sky = codesters.Rectangle(0, 0, 510, 510, 'skyblue')

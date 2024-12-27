@@ -1,4 +1,4 @@
-import codesters
+from . import codesters
 
 stage = codesters.Environment()
 

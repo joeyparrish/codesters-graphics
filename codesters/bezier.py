@@ -1,7 +1,7 @@
 import math
-import Tkinter
+import tkinter
 
-class Bezier(Tkinter.Canvas):
+class Bezier(tkinter.Canvas):
     '''
     Simple and slow algorithm to draw quadratic and
     cubic Bezier curves. Heavily inspired by http://pomax.github.io/bezierinfo/#control
@@ -15,7 +15,7 @@ class Bezier(Tkinter.Canvas):
     # positive x direction.
     def plot_pixel(self, x0, y0):
         self.create_line(x0, y0, x0+1, y0)
-        print x0, y0
+        print(x0, y0)
 
     # Calculates the cubic Bezier polynomial for
     # the n+1=4 coordinates.
