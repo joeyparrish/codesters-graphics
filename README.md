@@ -12,14 +12,16 @@ larger, object-oriented projects.
 ## Code Example
 
 You can install the codesters library with pip.
-```
+
+```sh
 python3 -m pip install codesters3
 ```
 
 After installing the library with pip you can `import codesters` in any python file.
 Either copy a project from www.codesters.com to a new python file or start making your own project in any new python file.
 Most codesters projects will start with something like this:
-```
+
+```py
 import codesters
 stage = codesters.Environment()
 
@@ -29,12 +31,14 @@ sprite = codesters.Sprite("fox")
 With the offline version you can also load your own sprite images. If you place a .gif image file in the same directory
 as your python file you can load the image as a sprite. For example if you had a file called `narwhal.gif` you could make a sprite
 like this:
-```
+
+```py
 unicorn_of_the_sea = codesters.Sprite("narwhal")
 ```
 
 You can also run a python file with the codesters graphics library like this:
-```
+
+```sh
 codesters my_project_file.py
 ```
 

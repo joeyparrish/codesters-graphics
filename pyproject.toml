@@ -32,7 +32,7 @@ Homepage = "https://github.com/joeyparrish/codesters-graphics"
 Issues = "https://github.com/joeyparrish/codesters-graphics/issues"
 
 [project.scripts]
-codesters = "codesters.execute:runner"
+codesters = "codesters.execute:main"
 
 [tool.setuptools.package-data]
 codesters = [

@@ -1,4 +1,4 @@
-from . import codesters
+import codesters
 import random
 #global backpack_box, counter_text, pollution_box, pollution_image, pollution_text, timer_text, timer_box, sprite, update_backpack, update_pollution, goal, add_prize, prize
 stage = codesters.Environment()

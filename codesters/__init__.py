@@ -2,7 +2,7 @@ from .environment import *
 from .shapes import *
 from .sprite import *
 from .manager import *
-from .execute import execute as codesters_run
+from .run import run as codesters_run
 
 import sys
 

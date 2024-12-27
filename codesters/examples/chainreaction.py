@@ -1,4 +1,4 @@
-from . import codesters
+import codesters
 import random
 stage = codesters.Environment()
 
