@@ -146,7 +146,6 @@ class SpriteClass(object):
     ## PIVOTAL FUNCTIONS ##
     def __init__(self, image, x=0, y=0, **kwargs):
         self.canvas = Manager.canvas
-        Manager.elements.append(self)
 
         # Default values
         self.type = Sprite
@@ -318,6 +317,8 @@ class SpriteClass(object):
         self.collision_function = None
         self.collision_goal_function = None
         self.collision_hazard_function = None
+
+        Manager.elements.append(self)
 
     def draw(self):
         if self.forever_function is not None:

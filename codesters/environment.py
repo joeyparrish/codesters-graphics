@@ -44,7 +44,6 @@ class StageClass(object):
     def __init__(self):
         self.root = Manager.canvas
         self.canvas = Manager.canvas
-        Manager.elements.append(self)
         Manager.stage = self
 
         self.type = Environment
@@ -91,6 +90,8 @@ class StageClass(object):
 
 
         self.key_functions = {}
+
+        Manager.elements.append(self)
 
     #### IMPORTANT FUNCTIONS ####
 
