@@ -1,8 +1,20 @@
 from tkinter import Canvas
 from PIL import Image, ImageTk
 from .manager import Manager
+import json
 import os
 import sys
+
+
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
+
+METADATA_PATH = os.path.join(os.path.dirname(__file__), "backgrounds.json")
+IMAGE_DICTIONARY = json.loads(open(METADATA_PATH).read())
+for name, path in IMAGE_DICTIONARY.items():
+    IMAGE_DICTIONARY[name] = os.path.join(DATA_DIR, path)
+DEFAULT_BACKGROUND = IMAGE_DICTIONARY["grid"]
+
 
 class StageClass(object):
     """The base class of the Environment class
@@ -14,33 +26,6 @@ class StageClass(object):
        This is an example note
 
     """
-    image_dictionary = {
-        "underwater": "Underwater_BG-01",
-        "summer": "beach",  # MISSING
-        "space": "space2",  # MISSING
-        "moon": "Space-Background",
-        "stage": "Stage",  # MISSING
-        "winter": "Winterscape",
-        "grid2": "gridfine",
-        "park": "Playground",
-        "stadium": "BasketballStadium",  # MISSING
-        "flower_field": "Long-flower-field",  # MISSING
-        "spring": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "fall": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "tilewall": "bathroom-01",  # MISSING
-        "concert": "concertstage",  # MISSING
-        "theater": "Stage",  # MISSING
-        "city": "CityBackground",  # MISSING
-        "baseballfield": "baseballdiamond",  # MISSING
-        "grid": "Modified-graph",  # MISSING
-        "houseinterior": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "soccerfield": "soccer-field",  # MISSING
-        "subway": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-        "flowers": "flowerfield",  # MISSING
-        "footballfield": "footballfield",  # MISSING
-        "jungle": '',   # CANNOT FIND THIS IMAGE IN SPRITES
-    }
-
     def __init__(self):
         self.root = Manager.canvas
         self.canvas = Manager.canvas
@@ -53,7 +38,7 @@ class StageClass(object):
         self.xcor = 0
         self.ycor = 0
         self.size = 1
-        self.bg_image_name = None
+        self.bg_image_path = None
         self.bg_image = None
         self.bg_photoimg = None
         self.bg_scale_y = 1
@@ -80,14 +65,6 @@ class StageClass(object):
         self.forever_function = None
         self.interval_function = None
         self.interval_length = 0
-
-        import os
-        self.directory = os.path.dirname(str(os.path.abspath(__file__)))
-        import glob
-        self.sprite_list = glob.glob(self.directory+'/sprites/*')
-        self.script_directory = os.path.dirname(os.path.realpath(sys.argv[0]))
-
-
 
         self.key_functions = {}
 
@@ -276,38 +253,27 @@ class StageClass(object):
     def event_delay(self, function, seconds):
         pass
 
-    def set_background(self, image):
-        if image:
-
-            if image in self.image_dictionary:
-                self.bg_image_name = self.image_dictionary[image]
-            else:
-                self.bg_image_name = image
-
-            default_img_path = self.directory+"/sprites/"+self.bg_image_name+".gif"
-            script_img_path = self.script_directory + "/" + self.bg_image_name + ".gif"
-            img_path = None
-
-            if os.path.isfile(script_img_path):
-                img_path = script_img_path
-            elif os.path.isfile(default_img_path):
-                img_path = default_img_path
-            else:
-                self.bg_image_name = self.image_dictionary['grid']
-                img_path = self.directory + "/sprites/" + self.bg_image_name + ".gif"
-
-            try:
-                self.bg_image = Image.open(img_path)
-            except Exception as ex:
-                print(ex)
-                self.bg_photoimg = None
-                self.bg_image = None
-                self.bg_image_name = ''
-
+    def set_background(self, image=""):
+        if os.path.isfile(image):
+            # An explicit user-supplied path.
+            self.bg_image_path = image
+        elif os.path.isfile(SCRIPT_DIR + image):
+            # A user-supplied path relative to the script directory.
+            self.bg_image_path = SCRIPT_DIR + image
+        elif image in IMAGE_DICTIONARY:
+            # A library-supplied image.
+            self.bg_image_path = IMAGE_DICTIONARY[image]
         else:
+            # A default for invalid input.
+            self.bg_image_path = DEFAULT_BACKGROUND
+
+        try:
+            self.bg_image = Image.open(self.bg_image_path)
+        except Exception as ex:
+            print(ex)
             self.bg_photoimg = None
             self.bg_image = None
-            self.bg_image_name = ''
+            self.bg_image_path = ''
 
     def set_background_x(self, amount):
         self.xcor = amount + self.canvas.winfo_reqwidth()

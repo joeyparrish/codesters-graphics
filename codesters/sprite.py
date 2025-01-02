@@ -3,146 +3,27 @@ from PIL import Image, ImageTk
 from .manager import Manager
 from .hitbox import Hitbox
 import inspect
+import json
 import os
-import glob
 import sys
 from threading import Timer
+
+
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.realpath(sys.argv[0]))
+
+METADATA_PATH = os.path.join(os.path.dirname(__file__), "sprites.json")
+IMAGE_DICTIONARY = json.loads(open(METADATA_PATH).read())
+for name, path in IMAGE_DICTIONARY.items():
+    IMAGE_DICTIONARY[name] = os.path.join(DATA_DIR, path)
+DEFAULT_SPRITE = IMAGE_DICTIONARY["codester"]
+
 
 class SpriteClass(object):
     """The base class of the Sprite class
     This defines all methods of the Sprite class
 
     """
-    image_dictionary = {
-        "": "codestersLogo",
-        "person1": "Character2",
-        "person2": "Character1",
-        "person3": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person4": "Character4",  # MISSING
-        "person5": "Character6",  # MISSING
-        "person6": "teenager",  # MISSING
-        "person7": "teenager2",  # MISSING
-        "person8": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person9": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person10": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person11": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "person12": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "princess": "Princess",  # MISSING
-        "princess2": "Princess2",  # MISSING
-        "prince": "Prince",  # MISSING
-        "superhero1": "superhero1",  # MISSING
-        "superhero2": "superhero2",  # MISSING
-        "athlete1": "athlete1",  # MISSING
-        "athlete2": "athlete2",  # MISSING
-        "astronaut1": "astronaut",  # MISSING
-        "astronaut2": "astronaut2",  # MISSING
-        "alien1": "Alien-1",  # MISSING
-        "snowman": "Snowman",  # MISSING
-        "ufo": "UFO",  # MISSING
-        "spaceship": "Shuttle",  # MISSING
-        "rocket": "Rocket",  # MISSING
-        "knight1": "female-knight",  # MISSING
-        "knight2": "knight",  # MISSING
-        "wizard": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "dragon": "dragon",  # MISSING
-        "treasurechest": "treasurechest",  # MISSING
-        "cow": "",   # CANNOT FIND THIS IMAGE IN SPRITES
-        "toucan": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "parrot": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "monkey": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "panther": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "snake": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "pig": "",  # CANNOT FIND THIS IMAGE IN SPRITES
-        "fox": "Fox",
-        "dog": "dog",  # MISSING
-        "cat": "Cat",
-        "kitten": "kitten",
-        "penguin": "penguin",  # MISSING
-        "hedgehog": "Hedgehog",  # MISSING
-        "butterfly": "Butterfly",  # MISSING
-        "dinosaur": "Dinosaur",  # MISSING
-        "bubbles": "Bubbles",  # MISSING
-        "flowers": "Flowers",
-        "flower2": "Flower2",  # MISSING
-        "flower3": "flower3",  # MISSING
-        "flower4": "Flower4",  # MISSING
-        "pinetree1": "PineTree1",
-        "pinetree2": "PineTree2",  # MISSING
-        "pinetree3": "PineTree3",  # MISSING
-        "pinetree4": "PineTree4",  # MISSING
-        "pinetree5": "PineTree5",  # MISSING
-        "pinetree6": "PineTree6",  # MISSING
-        "pinetree7": "PineTree7",  # MISSING
-        "shark": "shark",  # MISSING
-        "shark2": "shark2",  # MISSING
-        "turtle": "swimmingturtleSingle",  # MISSING
-        "turtle2": "turtle2",  # MISSING
-        "fish1": "Fish_1",
-        "fish2": "fish2",  # MISSING
-        "fish3": "Fish_3",  # MISSING
-        "fish4": "fish_4",  # MISSING
-        "football": "football",  # MISSING
-        "soccerball": "soccerball",
-        "soccernet": "soccer-net-side",  # MISSING
-        "baseball": "baseball",
-        "baseballbat": "bat",
-        "basketball": "basketball",
-        "net": "hoop",
-        "backboard": "backboard",
-        "snowflake1": "snowflake1",  # MISSING
-        "snowflake2": "snowflake2",  # MISSING
-        "snowflake3": "snowflake3",  # MISSING
-        "present1": "Present1",
-        "present2": "Present2",  # MISSING
-        "present3": "Present3",  # MISSING
-        "present4": "Present4",  # MISSING
-        "present5": "present_5",  # MISSING
-        "present6": "present_6",  # MISSING
-        "present7": "present_7",  # MISSING
-        "present8": "present_8",  # MISSING
-        "paper": "Paper",  # MISSING
-        "codesters": "codestersLogo",
-        "purpleguy": "purpleGuy",  # MISSING
-        "robot": "robot",  # MISSING
-        "enemy": "enemy",  # MISSING
-        "microphone": "microphone",  # MISSING
-        "dice1": "Dice5",  # MISSING
-        "dice2": "dice2",  # MISSING
-        "dice3": "dice1",  # MISSING
-        "dice4": "dice3",  # MISSING
-        "dice5": "dice4",  # MISSING
-        "dice6": "dice7",  # MISSING
-        "heads": "codesterscoinheads",  # MISSING
-        "tails": "codesterscointails",  # MISSING
-        "coin": "codesterscoinsmall",  # MISSING
-        "scissors": "scissors",  # MISSING
-        "rock": "rock",  # MISSING
-        "earth": "earth",  # MISSING
-        "recyclingbin": "recyclingbin",
-        "trashcan": "trashbin",  # MISSING
-        "garbage": "garbage",  # MISSING
-        "pollution": "pollution",  # MISSING
-        "applecore": "applecore",
-        "fishbones": "fishskeleton",  # MISSING
-        "sodacan": "sodacan",
-        "steelcan": "can",
-        "waterbottle": "waterbottle",
-        "milkjug": "milkjug",
-        "plasticbag": "plasticbag",  # MISSING
-        "toothbrush": "toothbrush",  # MISSING
-        "jeans": "jeans",  # MISSING
-        "tshirt": "tshirt2",  # MISSING
-        "sweater": "sweater",  # MISSING
-        "coat": "jacket",  # MISSING
-        "fleecehat": "hat",  # MISSING
-        "bike": "bike",
-        "bench": "bench",
-        "slide": "slide",  # MISSING
-        "sink": "sink",  # MISSING
-        "shower": "shower",  # MISSING
-        "hoop": "hoop",
-    }
-
     ## PIVOTAL FUNCTIONS ##
     def __init__(self, image, x=0, y=0, **kwargs):
         self.canvas = Manager.canvas
@@ -164,13 +45,9 @@ class SpriteClass(object):
         self.width = 50
         self.height = 50
 
-        self.default_directory = os.path.dirname(os.path.realpath(__file__))
-        self.script_directory = os.path.dirname(os.path.realpath(sys.argv[0]))
-
-        self.sprite_list = glob.glob(self.default_directory+'/sprites/*')
         if kwargs.get('shape') is None:
-            self.photo = Image.open(self.default_directory+'/sprites/codestersLogo.gif')
-            self.base_photo = Image.open(self.default_directory+"/sprites/codestersLogo.gif")
+            self.photo = Image.open(IMAGE_DICTIONARY["codesters"])
+            self.base_photo = Image.open(IMAGE_DICTIONARY["codesters"])
             self.base_photo_width = self.photo.size[0]
             self.base_photo_height = self.photo.size[1]
             self.height = self.base_photo_height
@@ -264,24 +141,21 @@ class SpriteClass(object):
         self.polygons = []
 
         if image and kwargs.get('shape') is None:
-
-            if image in self.image_dictionary:
-                self.filename = self.image_dictionary[image]
+            if os.path.isfile(image):
+                # An explicit user-supplied path.
+                self.image_path = image
+            elif os.path.isfile(SCRIPT_DIR + image):
+                # A user-supplied path relative to the script directory.
+                self.image_path = SCRIPT_DIR + image
+            elif image in IMAGE_DICTIONARY:
+                # A library-supplied image.
+                self.image_path = IMAGE_DICTIONARY[image]
             else:
-                self.filename = image
+                # A default for invalid input.
+                self.image_path = DEFAULT_SPRITE
 
-            script_img_path = self.script_directory + "/" + self.filename + ".gif"
-            default_img_path = self.default_directory + "/sprites/" + self.filename+".gif"
-            img_path = None
-            if os.path.isfile(script_img_path):
-                img_path = script_img_path
-            elif os.path.isfile(default_img_path):
-                img_path = default_img_path
-            else:
-                img_path = self.default_directory + "/sprites/codestersLogo.gif"
-
-            self.base_photo = Image.open(img_path)
-            self.photo = Image.open(img_path)
+            self.base_photo = Image.open(self.image_path)
+            self.photo = Image.open(self.image_path)
 
             im2 = self.photo.convert('RGBA')
             rot = im2.rotate(self.heading, expand=1)
