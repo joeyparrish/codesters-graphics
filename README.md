@@ -1,13 +1,17 @@
 # codesters-graphics
+
 A library to allow programs developed on codesters.com to run offline.
 
-Now updated for Python 3.
+Now updated for Python 3!
+See also [CHANGELOG.md](https://github.com/joeyparrish/codesters-graphics/blob/main/CHANGELOG.md).
+
 
 ## Synopsis
 
 This is a python module to allow students working on www.codesters.com to run codesters projects offline.
 The codesters-graphics library is also a great way to segue from structured lessons on codesters.com to
 larger, object-oriented projects.
+
 
 ## Code Example
 
@@ -57,7 +61,6 @@ Our example files are:
 * recycle.py
 
 
-
 ## Motivation
 
 Codesters.com is a great way for a teacher to easily lead a class through lessons teaching Python programming via
@@ -70,24 +73,24 @@ We at Codesters received requests from teachers who enjoyed working through less
 to introduce students to working with a filesystem or working with other open source python modules within a
 codesters project. The codesters-graphics library allows this transition.
 
+
 ## API Reference
 
 Our documentation has just been started. There is a working sphinx-docs configuration in the docs directory with a
 few documentation stubs in code to test the configuration.
 
-## Tests
 
-Coming soon!
+## Contributing
 
-## Contributors
+The original version of this project appears to have been abandoned in 2015.  It was revived by
+[joeyparrish](https://joeyparrish.github.io/) for his son at the beginning of 2025.  Issues and PRs on this fork
+are very welcome.
 
-This project is just getting off the ground! Please post github issues when you find bugs.
-Most of the features of the Codesters online library have been implemented, but there's a lot of code clean up
-and documentation to get started on. Feel free to fork the project and ask questions.
 
 ## License
 
 The codesters-graphics library is licensed under the MIT License.
+
 
 ## Packaging the module
 
