@@ -28,6 +28,11 @@ Since forking away from https://github.com/learningcom/codesters-graphics, the f
  - Add all codesters sprites from codesters API, optimized and compressed
 
 
+## 1.1.1
+
+ - Fix package missing non-GIF sprites (which is most of them)
+
+
 ## Future
 
  - Automated docs generation

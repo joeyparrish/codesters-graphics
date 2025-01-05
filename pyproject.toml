@@ -36,6 +36,6 @@ codesters = "codesters.execute:main"
 
 [tool.setuptools.package-data]
 codesters = [
-    "sprites/*.gif",
+    "sprites/*",
     "examples/*.py",
 ]
