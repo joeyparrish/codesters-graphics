@@ -15,10 +15,10 @@ larger, object-oriented projects.
 
 ## Code Example
 
-You can install the codesters library with pip.
+You can install or upgrade the codesters library with pip.
 
 ```sh
-python3 -m pip install codesters3
+python3 -m pip install --upgrade codesters3
 ```
 
 After installing the library with pip you can `import codesters` in any python file.
