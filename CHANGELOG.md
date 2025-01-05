@@ -3,7 +3,7 @@
 Since forking away from https://github.com/learningcom/codesters-graphics, the following high-level changes have been made:
 
 
-## 1.0.0
+## 1.0.0 (pulled)
 
  - Update README
  - Replace `setup.py` packaging with modern `build`-based packaging and `pyproject.toml`
@@ -18,7 +18,7 @@ Since forking away from https://github.com/learningcom/codesters-graphics, the f
  - Fix bad dependency specification in 1.0.0 release
 
 
-## 1.1.0
+## 1.1.0 (pulled)
 
  - Fix TK window creation when importing module in REPL
  - Clean up script loading code and CLI
@@ -28,9 +28,14 @@ Since forking away from https://github.com/learningcom/codesters-graphics, the f
  - Add all codesters sprites from codesters API, optimized and compressed
 
 
-## 1.1.1
+## 1.1.1 (pulled)
 
  - Fix package missing non-GIF sprites (which is most of them)
+
+
+## 1.1.2 (pulled)
+
+ - Fix package missing sprite metadata files
 
 
 ## Future

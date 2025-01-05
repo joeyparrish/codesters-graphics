@@ -37,5 +37,6 @@ codesters = "codesters.execute:main"
 [tool.setuptools.package-data]
 codesters = [
     "sprites/*",
+    "*.json",
     "examples/*.py",
 ]
